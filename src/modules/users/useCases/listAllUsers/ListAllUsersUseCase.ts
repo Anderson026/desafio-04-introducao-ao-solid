@@ -12,6 +12,8 @@ class ListAllUsersUseCase {
     // Complete aqui
     const user = this.usersRepository.findById(user_id);
 
+    if(!user) throw new Error("User not exists!");
+
     if(!user.admin) {
       throw new Error("Only admins can access the list!");
     }
